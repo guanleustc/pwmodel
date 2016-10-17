@@ -90,7 +90,7 @@ class PwModel(object):
         """
         returns the qth most probable element in the dawg.
         """
-        return heapq.nlargest(q+2, self._T.items())[-1]
+        return heapq.nlargest(q+2, self._T.items(),key=lambda s: s[1])[-1]
     
     def get(self, pw):
         return self.prob(pw)
